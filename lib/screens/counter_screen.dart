@@ -27,29 +27,40 @@ class _CounterScreenState extends State<CounterScreen> {
             ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          FloatingActionButton(
-            child: const Icon(Icons.exposure_plus_1_outlined),
-            onPressed: () => setState(() => counter++),
-          ),
-          // const SizedBox(
-          //   width: 20,
-          // ),
-          FloatingActionButton(
-            child: const Icon(Icons.restart_alt_outlined),
-            onPressed: () => setState(() => counter = 0),
-          ),
-          // const SizedBox(
-          //   width: 20,
-          // ),
-          FloatingActionButton(
-            child: const Icon(Icons.exposure_minus_1),
-            onPressed: () => setState(() => counter--),
-          ),
-        ],
-      ),
+      floatingActionButton: const CustomFloatingActions(),
+    );
+  }
+}
+
+class CustomFloatingActions extends StatelessWidget {
+  const CustomFloatingActions({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: const [
+        FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.exposure_plus_1_outlined),
+        ),
+        // const SizedBox(
+        //   width: 20,
+        // ),
+        FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.restart_alt_outlined),
+        ),
+        // const SizedBox(
+        //   width: 20,
+        // ),
+        FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.exposure_minus_1),
+        ),
+      ],
     );
   }
 }
